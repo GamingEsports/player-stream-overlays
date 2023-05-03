@@ -20,9 +20,19 @@ for (let i = 0; i < socials.length; i++){
 }
 
 window.onload =  function() {
+    const nameWrapper = nameElem.parentElement;
+    let nameScale = 1;
+    console.log(nameWrapper.clientWidth, nameWrapper.parentElement.clientWidth);
+    if (nameWrapper.clientWidth > nameWrapper.parentElement.clientWidth){
+        nameScale = nameWrapper.parentElement.clientWidth / nameWrapper.clientWidth;
+        console.log(nameScale);
+        nameWrapper.style.transform = `scale(${nameScale})`;
+        nameWrapper.style.transformOrigin = "center left";
+    }
+
     const stripes = document.querySelectorAll(".stripe");
-    fitStripe(stripes[0], true);
-    fitStripe(stripes[1], false);
+    fitStripe(stripes[0], true, nameScale);
+    fitStripe(stripes[1], false, nameScale);
 }
 
 function getSocialWrapper(icon, name){
@@ -34,11 +44,10 @@ function getSocialWrapper(icon, name){
     `
 }
 
-function fitStripe(elem, isLeft){
+function fitStripe(elem, isLeft, scale){
     const rect = nameElem.getBoundingClientRect();
-    const height = nameElem.parentElement.clientHeight;
+    const height = nameElem.parentElement.clientHeight * scale;
     const fixedHeight = Math.ceil(height / 29) * 29;
-    console.log(fixedHeight);
     const clientWidth = rect.width;
     const padding = 36;
     elem.style.height = `${fixedHeight}px`;
