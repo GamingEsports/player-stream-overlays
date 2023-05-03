@@ -99,6 +99,13 @@ body {
     color: #FACA6F;
 }
 
+.result-link {
+    padding: .75em;
+    background-color: #2A0E10;
+    border-radius: .5em;
+    word-break: break-all;
+}
+
 .result-instructions {
     font-size: 22px;
     margin-top: .5em;
