@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./break.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script defer src="./break.js"></script>
+</head>
+<body>
+    <svg style="width: 0; height: 0; position: absolute;">
+        <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+          <feTurbulence id="turb-freq" type="fractalNoise" numOctaves="1" seed="1" baseFrequency="0.002"></feTurbulence>
+          <feDisplacementMap id="turb-displacement" scale="70" in="SourceGraphic"></feDisplacementMap>
+        </filter>
+    </svg>
+    <img src="../assets/stripes_svg.svg" class="stripe"></div>
+    <img src="../assets/stripes_svg.svg" class="stripe"></div>
+    <div class="overlay-wrapper">
+        <div class="background-wrapper">
+            <img class="background2" src="../assets/background.png">
+            <img class="background" src="../assets/background.png">
+            <img class="border" src="../assets/border.png">
+        </div>
+        <div class="mid-wrapper">
+            <div>
+                <div class="player-name"></div>
+                <div class="break-text">be right back</div>
+            </div>
+        </div>
+        <div class="bottom-wrapper">
+            <img class="logo" src="../assets/logo.png">
+            <div class="socials-container">
+            </div>
+        </div>
+    </div>
+    <div class="preload">
+        <div style="font-family: 'Syne', sans-serif;">preload</div>
+    </div>
+</body>
+</html>

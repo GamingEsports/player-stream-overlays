@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    width: 1920px;
+    height: 1080px;
+    font-size: 16px;
+}
+
+.overlay-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.background-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+
+.background {
+    position: absolute;
+    z-index: -3;
+    filter: url("#turbulence");
+    top: -50px;
+    left: -50px;
+    width: calc(1920px + 100px);
+    height: calc(1080px + 100px);
+    object-fit: cover;
+}
+.background2 {
+    position: absolute;
+    z-index: -2;
+    top: -50px;
+    left: -50px;
+    width: calc(1920px + 100px);
+    height: calc(1080px + 100px);
+    object-fit: cover;
+    opacity: .5;
+}
+
+.border {
+    width: 1920px;
+    height: 1080px;
+    object-fit: contain;
+    transform: scale(.975);    
+    position: relative;
+    z-index: 1;
+}
+
+.mid-wrapper{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: calc(1920px * .8);
+    height: 1080px;
+}
+
+.player-name{
+    font-family: 'Syne', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    white-space: nowrap;
+    font-size: 180px;
+    font-weight: 700;
+    line-height: .85em;
+}
+
+.break-text{
+    font-family: 'Syne', sans-serif;
+    text-transform: uppercase;
+    color: #FACA6F;
+    white-space: nowrap;
+    font-size: 90px;
+    font-weight: 600;
+    line-height: .85em;
+}
+
+.bottom-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: calc(1920px * .8);
+    height: calc(1080px * .94);
+    z-index: 3;
+}
+
+.logo{
+    height: 110px;
+    margin-right: 50px;
+    margin-bottom: 4px;
+}
+
+.socials-container {
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+
+.social-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-right: 40px;
+}
+
+.social-wrapper > img{
+    height: 40px;
+    width: auto;
+    margin-right: 20px;
+}
+
+.social-wrapper > .social-text {
+    font-family: 'IBM Plex Mono', monospace;
+    color: #E7AE47;
+    text-transform: uppercase;
+    font-size: 32px;
+}
+
+.stripe {
+    z-index: 10;
+    width: 1920px;
+    position: absolute;
+    opacity: .55;
+    object-fit: cover;
+}
+
+.preload {
+    opacity: 0;
+    position: absolute;
+}
