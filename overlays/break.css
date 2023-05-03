@@ -133,6 +133,7 @@ body {
     background-repeat: repeat;
     border: solid #73242a;
     border-width: 0 6px 0 6px;
+    transform: skewX(-8deg);
 }
 
 .preload {
