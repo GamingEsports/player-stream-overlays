@@ -17,7 +17,7 @@ const playerNameElem = document.querySelector(".player-name");
 playerNameElem.innerText = playerName;
 const playerNameScale = Math.min(
     (document.querySelector(".info-wrapper").clientHeight / playerNameElem.clientHeight) * .8,
-    (document.querySelector(".info-wrapper").clientWidth / playerNameElem.clientWidth) * .8
+    (document.querySelector(".info-wrapper").clientWidth / playerNameElem.clientWidth) * .7
 )
 playerNameElem.style.transform = `scale(${playerNameScale})`;
 
@@ -39,8 +39,8 @@ for (let i = 0; i < phases.length; i++){
         phasesToChange = [phases[i]];
     }
     if (phasesToChange.length != phases.length){
-        tl.to(phasesToChange, {opacity: 1, duration: .5, display: "block"})
-            .to(phasesToChange, {opacity: 0, duration: .5, display: "none"}, i==0 ? "+=8" : `+=${phasesToChange.length*3}`);
+        tl.fromTo(phasesToChange, {x: 45}, {x: 0, opacity: 1, duration: .5, display: "block", ease: "power4.out"})
+            .to(phasesToChange, {x: -30, opacity: 0, duration: .5, display: "none", ease: "power3.in"}, i==0 ? "+=8" : `+=${phasesToChange.length*3}`);
         if (i != 0){
             i += numPhasesToShow-1;
         }

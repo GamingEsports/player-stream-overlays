@@ -36,10 +36,11 @@ function getSocialWrapper(icon, name){
 function fitStripe(elem, isLeft){
     const rect = nameElem.getBoundingClientRect();
     const height = nameElem.parentElement.clientHeight;
-    const fixedHeight = Math.ceil(height / 29) * 29;
+    const fixedHeight = Math.floor(height / 29) * 29;
+    console.log(fixedHeight);
     const clientWidth = rect.width;
     const padding = 30;
-    elem.style.height = `${fixedHeight - ((fixedHeight - height) / 2)}px`;
+    elem.style.height = `${fixedHeight}px`;
     elem.style.left = isLeft ? `${rect.left + clientWidth + padding}px` : `${rect.left - 1920 - padding}px`;
-    elem.style.top = `${rect.top}px`;
+    elem.style.top = `${rect.top- ((fixedHeight - height) / 2)}px`;
 }
