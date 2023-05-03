@@ -4,9 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600&family=IBM+Plex+Mono&family=Syne:wght@600;700&display=swap" rel="stylesheet">
     <title>GE Player Stream Overlays</title>
 </head>
 <body>
-    <h1>Coming soon!</h1>
+    <div class="header">
+        <img src="./assets/logo.png">
+        <div>Player Stream Overlays</div>
+    </div>
+    <div class="input-field-container">
+        <div class="label">Name / Tag*</div>
+        <input type="text" id="input-tag">
+        <div class="label">Twitter</div>
+        <input type="text" id="input-twitter">
+        <div class="label">Instagram</div>
+        <input type="text" id="input-instagram">
+        <div class="label">Twitch</div>
+        <input type="text" id="input-twitch">
+        <div class="label">Discord</div>
+        <input type="text" id="input-discord">
+    </div>
+    <button class="generate-button" onclick="generateOnClick()">Generate sources</button>
+    <div class="results-wrapper">
+
+    </div>
+    <script>
+        const generateButton = document.querySelector('.generate-button');
+        const resultsWrapper = document.querySelector('.results-wrapper');
+        const inputTag = document.querySelector('#input-tag');
+        const inputSocials = [
+            {"name": "twitter", "elem": document.querySelector('#input-twitter')},
+            {"name": "instagram", "elem": document.querySelector('#input-instagram')},
+            {"name": "twitch", "elem": document.querySelector('#input-twitch')},
+            {"name": "discord", "elem": document.querySelector('#input-discord')}
+        ]
+
+        function generateOnClick(){
+            resultsWrapper.innerHTML = '';
+            if (inputTag.value.length < 1) {
+                alert('Please enter a name/tag. Names are required, but social media links are not.');
+                return;
+            }
+            let cardLink = `${window.location.href}overlays/card.html?name=${encodeURIComponent(inputTag.value)}`;
+            let breakLink =`${window.location.href}overlays/break.html?name=${encodeURIComponent(inputTag.value)}`;
+            for (let i = 0; i < inputSocials.length; i++) {
+                if (inputSocials[i].elem.value.length > 0) {
+                    cardLink += `&${inputSocials[i].name}=${encodeURIComponent(inputSocials[i].elem.value)}`;
+                    breakLink += `&${inputSocials[i].name}=${encodeURIComponent(inputSocials[i].elem.value)}`;
+                }
+            }
+            resultsWrapper.innerHTML = `
+                <div class="result-card">
+                    <div class="result-title">Card scene link: Place this on your gameplay scene!</div>
+                    <div class="result-link">${cardLink}</div>
+                    <div class="result-instructions">To use this source, add a Browser source to your scene and paste the link in the URL field. Use any size that fits, try to keep width between 250 and 600 and height between 50 and 200. Refresh the source if you resize it!</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-title">Break scene link: Use this on its own!</div>
+                    <div class="result-link">${breakLink}</div>
+                    <div class="result-instructions">To use this source, add a Browser source to your scene and paste the link in the URL field. Use a width of 1920 and height of 1080.</div>
+                </div>
+            `;
+        }
+    </script>
 </body>
 </html>

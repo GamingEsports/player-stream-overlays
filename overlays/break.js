@@ -6,7 +6,8 @@ const playerName = urlParams.get('name');
 const socials = [
     { "name": "twitter", "value": urlParams.get('twitter') },
     { "name": "instagram", "value": urlParams.get('instagram') },
-    { "name": "twitch", "value": urlParams.get('twitch') }
+    { "name": "twitch", "value": urlParams.get('twitch') },
+    { "name": "discord", "value": urlParams.get('discord') }
 ]
 
 const nameElem = document.querySelector(".player-name");
