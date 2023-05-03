@@ -129,7 +129,10 @@ body {
     width: 1920px;
     position: absolute;
     opacity: .55;
-    object-fit: cover;
+    background: url("../assets/stripe.png");
+    background-repeat: repeat;
+    border: solid #73242a;
+    border-width: 0 6px 0 6px;
 }
 
 .preload {

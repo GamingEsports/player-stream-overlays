@@ -1,4 +1,5 @@
 gsap.to("#turb-freq", {duration: 18, attr:{baseFrequency: 0.006}, repeat: -1, yoyo: true, ease: "sine.inOut"});
+gsap.to(".stripe", {duration: 70, backgroundPosition: "2866px 0px", repeat: -1, ease: "none"});
 
 const urlParams = new URLSearchParams(window.location.search);
 const playerName = urlParams.get('name');
@@ -35,10 +36,10 @@ function getSocialWrapper(icon, name){
 function fitStripe(elem, isLeft){
     const rect = nameElem.getBoundingClientRect();
     const height = nameElem.parentElement.clientHeight;
+    const fixedHeight = Math.ceil(height / 29) * 29;
     const clientWidth = rect.width;
-    const padding = 25;
-    console.log(clientWidth);
-    elem.style.height = `${height}px`;
+    const padding = 30;
+    elem.style.height = `${fixedHeight - ((fixedHeight - height) / 2)}px`;
     elem.style.left = isLeft ? `${rect.left + clientWidth + padding}px` : `${rect.left - 1920 - padding}px`;
     elem.style.top = `${rect.top}px`;
 }
