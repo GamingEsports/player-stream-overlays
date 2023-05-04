@@ -41,7 +41,12 @@
             {"name": "instagram", "elem": document.querySelector('#input-instagram')},
             {"name": "twitch", "elem": document.querySelector('#input-twitch')},
             {"name": "discord", "elem": document.querySelector('#input-discord')}
-        ]
+        ];
+        document.onkeypress = function(e) {
+            if (e.keyCode == 13 || e.which == 13) {
+                generateOnClick();
+            }
+        };
 
         function generateOnClick(){
             resultsWrapper.innerHTML = '';
@@ -69,6 +74,7 @@
                     <div class="result-instructions">To use this source, add a Browser source to your scene and paste the link in the URL field. Use a width of 1920 and height of 1080.</div>
                 </div>
             `;
+            resultsWrapper.scrollIntoView({behavior: "smooth"});
         }
     </script>
 </body>

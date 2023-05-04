@@ -5,11 +5,13 @@ body {
     padding: 3em 0;
     background-image: url("./assets/background.png");
     background-size: cover;
+    background-attachment: fixed;
     color: white;
 }
 
 .header {
     font-family: 'Syne', sans-serif;
+    font-weight: 700;
     font-size: 48px;
     display: flex;
     flex-direction: column;
@@ -47,14 +49,22 @@ body {
     width: -moz-available;
     appearance: none;
     padding: .5em 1em;
-    border-radius: 1.5em;
+    border-radius: 6px;
     font-size: 24px;
     font-family: 'Archivo', sans-serif;
     font-weight: 600;
     background-color: #73242A;
-    border: none;
+    border: .1em solid #73242A;
     box-shadow: 0 0 70px #FACA6F26;
     color: white;
+    transition-duration: .17s;
+}
+
+.input-field-container > input:focus {
+    scale: 1.01;
+    box-shadow: 0 0 40px #FACA6F26;
+    outline: none;
+    border-color: #E7AE47;
 }
 
 .generate-button {
@@ -65,7 +75,7 @@ body {
     text-transform: uppercase;
     background-color: #73242A;
     border: 2px solid #E7AE47;
-    border-radius: .5em;
+    border-radius: 6px;
     color: #E7AE47;
     cursor: pointer;
     transition-duration: .25s;
@@ -87,9 +97,10 @@ body {
 .result-card {
     background-color: #73242A;
     box-shadow: 0 0 70px #FACA6F26;
-    border-radius: 1em;
+    border-radius: 6px;
     padding: 1em;
     margin-top: 1em;
+    overflow: hidden;
 }
 
 .result-title {
@@ -114,4 +125,7 @@ body {
 
 iframe {
     margin: 32px 0;
+    box-shadow: 0 0 70px #FACA6F26;
+    border: 2px solid #E7AE47;
+    border-radius: 6px;
 }
