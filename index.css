@@ -111,3 +111,7 @@ body {
     margin-top: .5em;
     font-weight: 400;
 }
+
+iframe {
+    margin: 32px 0;
+}
